@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="bg-gray-50 flex flex-col justify-start py-12 sm:px-6 lg:px-8">
+    <img class="mx-auto h-10 w-auto" src="https://www.svgrepo.com/show/301686/listing-tick.svg" alt="Workflow">
+    <h1 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
+        Lista dos cliente
+    </h1>
+    <p class="mt-2 text-center text-sm leading-5 text-gray-500 max-w">
+        <a href="lista"
+            class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">Click
+            aqui</a>, para cadastrar um novo cliente
+    </p>
+
+    <div class="mt-0 sm:mx-auto sm:w-full sm:max-w-md">
+        {% set mensagens = get_flashed_messages() %}
+        {% if mensagens %}
+        <!-- Alert Success -->
+        <div class="bg-green-200 px-6 py-4 mx-2 my-4 rounded-md text-lg flex items-center mx-auto max-w-lg">
+            <svg viewBox="0 0 24 24" class="text-green-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
+                <path fill="currentColor"
+                    d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z">
+                </path>
+            </svg>
+            <span class="text-green-800">
+                {% for msg in mensagens %}
+                    {{ msg }}
+                {% endfor %}
+            </span>
+        </div>
+        <!-- End Alert Success -->
+        {% endif %}
+    </div>
+
+    <table class="mt-4 min-w-full divide-y divide-gray-200">
+        <thead>
+            <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nome</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Instagram
+                </th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">E-mail</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Telefone</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ação</th>
+            </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+            {% for client in clients %}
+            <tr>
+                <td class="px-6 py-4 whitespace-nowrap">{{client.name}}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{client.instagram}}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{client.email}}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{client.tel}}</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <a href="/update/{{ client.id }}"
+                        class="px-4 py-2 font-medium text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue active:bg-blue-600 transition duration-150 ease-in-out">Editar</a>
+                    <a href="/delete/{{ client.id }}"
+                        class="ml-2 px-4 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:shadow-outline-red active:bg-red-600 transition duration-150 ease-in-out">Apagar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

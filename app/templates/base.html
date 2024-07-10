@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
+</head>
+
+<body>
+    <div>
+        <div class="mx-auto max-w-screen-xl px-6 lg:px-8 relative">
+            <div class="relative flex h-16 space-x-10 w-full">
+                <div class="flex justify-start"><a class="flex flex-shrink-0 items-center" href="/index">
+                        <img class="block h-8 w-auto" height="32"
+                            src="https://www.svgrepo.com/show/303650/neo-logo.svg">
+                    </a>
+                </div>
+                <div class="flex-shrink-0 flex px-2 py-3 items-center space-x-8 flex-1 justify-end justify-self-end "><a
+                        class="text-gray-700 hover:text-lime-700 text-sm font-medium" href="/lista">Lista</a>
+                    <a class="text-white bg-gray-800 hover:bg-gray-900 inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm "
+                        href="/cadastro">Cadastro</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+
+</html>
