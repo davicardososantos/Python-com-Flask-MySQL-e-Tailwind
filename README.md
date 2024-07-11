@@ -1,44 +1,86 @@
-# Aprendendo Python com flask 
+# Rodando Python com Flask, MySQL e Tailwind 
 
-Faça o download da versão mais recente do Python
+### Requisitos
 
-Criar um ambiente virtual para execultar o servidor dentro desse ambiente
+- Faça o download da versão mais recente do [Python](https://www.python.org/downloads/).
 
-python -m venv venv
+### Configuração do Ambiente
 
-Execultar o script do servidor pra ativar ele
+1. Crie um ambiente virtual para executar o servidor dentro desse ambiente:
+    ```sh
+    python -m venv venv
+    ```
 
-.\venv\Scripts\activate
+2. Ative o ambiente virtual:
+    ```sh
+    .\venv\Scripts\activate
+    ```
 
-Instalar o Flask no ambiente virtual
+3. Atualize o `pip` e instale o Flask no ambiente virtual:
+    ```sh
+    python.exe -m pip install --upgrade pip
+    pip install flask
+    ```
 
-python.exe -m pip install --upgrade pip
-pip install flask
+### Estrutura do Projeto
 
-Criar o arquivo __init__.py 
+1. Crie o arquivo `__init__.py`.
 
-Instalar um pacote de váriavel
-pip install python-dotenv
+2. Instale o pacote de variáveis de ambiente:
+    ```sh
+    pip install python-dotenv
+    ```
 
-Criar um arquivo .flaskenv
+3. Crie um arquivo `.env`.
 
-Para testar:
+### Executando o Servidor
+
+Para testar em modo de **produção** o servidor, utilize os comandos:
+
+```sh
 flask run
+```
+
+ou para rodar em modo de **teste**:
+
+```sh
 flask --app main.py --debug run
+```
+### Integração com MySQL
+Instale os pacotes necessários para trabalhar com **MySQL**:
 
-MYSQL
-
+```sh
 pip install Flask-MySQL
 pip install PyMySQL
 pip install Flask-SQLAlchemy
+```
 
+### Verificação de Pacotes
 
-Ver pacotes:
+Para ver a lista de pacotes instalados, utilize:
+
+```sh
 pip freeze
+```
 
+### Configuração do Tailwind CSS
 
+1. Instale o Tailwind CSS:
+
+```sh
 npm install -D tailwindcss
+```
 
+2. Inicialize o Tailwind CSS:
+
+```sh
 npx tailwindcss init
+```
 
+3. Compile os estilos CSS:
+
+```sh
 npx tailwindcss -i ./static/src/input.css -o ./static/dist/css/output.css --watch
+```
+
+> Pronto! Agora você está configurado para desenvolver seu projeto Flask com suporte para Tailwind CSS.
