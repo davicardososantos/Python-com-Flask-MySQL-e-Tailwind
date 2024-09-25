@@ -84,3 +84,8 @@ npx tailwindcss -i ./static/src/input.css -o ./static/dist/css/output.css --watc
 ```
 
 > Pronto! Agora você está configurado para desenvolver seu projeto Flask com suporte para Tailwind CSS.
+
+### Extras
+```sh
+flask --app hello run --host 0.0.0.0
+```
