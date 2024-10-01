@@ -88,4 +88,6 @@ npx tailwindcss -i ./static/src/input.css -o ./static/dist/css/output.css --watc
 ### Extras
 ```sh
 flask --app hello run --host 0.0.0.0
+pip freeze > requirements.txt
+
 ```
